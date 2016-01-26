@@ -1,6 +1,6 @@
 var basket = {
   subtotal: 0,
-  items: []
+  items: [item, bogofItem]
 }
 
 var item = {

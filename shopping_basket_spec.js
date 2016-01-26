@@ -7,4 +7,7 @@ describe('Shopping basket', function(){
   it('should be empty to begin with', function(){
     assert.equal(0, basket.subtotal);
   })
+  it('should contain multuple items', function(){
+    assert.equal(2, basket.items.length)
+  })
 });
