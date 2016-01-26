@@ -4,7 +4,10 @@ var basket = {
   subtotal: function(){
     var total = 0
     for(item of this.items){
-      total += item.price;
+      if(item.bogof === true){
+        item.quantity = (item.quantity / 2)
+      }
+      total += (item.price * item.quantity);
     }
 
     if(total >= 20){
@@ -16,27 +19,21 @@ var basket = {
     }
 
     return total;
-
-    // if(this.subtotal >= 20){
-    //   this.subtotal = (this.subtotal * 0.9);
-    // }
-
-    // if(this.discount === true){
-    //   this.subtotal = (this.subtotal * 0.95);
-    // }
-
+    
   }
 }
 
 var item = {
   name: 'cheese',
   price: 5,
+  quantity: 1,
   bogof: false
 }
 
 var bogofItem = {
   name: 'milk',
   price: 2,
+  quantity: 1,
   bogof: true
 }
 

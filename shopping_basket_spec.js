@@ -9,11 +9,11 @@ describe('Shopping basket', function(){
     assert.equal(0, basket.subtotal());
   });
   it('should contain multiple items', function(){
-    basket.items = [item, bogofItem];
+    basket.items = [item, item];
     assert.equal(2, basket.items.length);
   });
   it('should have a correct subtotal', function(){
-    assert.equal(7, basket.subtotal());
+    assert.equal(10, basket.subtotal());
   });
   it('should provide a 10% discount on subtotals on or over £20', function(){
     basket.items = [];
@@ -25,5 +25,13 @@ describe('Shopping basket', function(){
     basket.items = [item];
     basket.discount = true;
     assert.equal(4.75, basket.subtotal());
+    basket.discount = false;
   });
+  it('should work for bogof items', function(){
+    basket.items = [];
+    basket.items = [bogofItem];
+    bogofItem.quantity = 4;
+    assert.equal(4, basket.subtotal());
+    // Todo: Account for odd quantity (try Math.floor();)
+  })
 });
