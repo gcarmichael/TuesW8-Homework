@@ -20,4 +20,10 @@ describe('Shopping basket', function(){
     basket.items = [item, item, item, item];
     assert.equal(18, basket.subtotal());
   });
+  it('should provide a 5% discount if the customer has a discount card', function(){
+    basket.items = [];
+    basket.items = [item];
+    basket.discount = true;
+    assert.equal(4.75, basket.subtotal());
+  });
 });

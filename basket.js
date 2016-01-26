@@ -11,6 +11,10 @@ var basket = {
       total = (total * 0.9);
     }
 
+    if(this.discount === true){
+      total = (total * 0.95);
+    }
+
     return total;
 
     // if(this.subtotal >= 20){
