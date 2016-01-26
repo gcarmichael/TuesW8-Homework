@@ -5,9 +5,14 @@ var assert = require('assert');
 
 describe('Shopping basket', function(){
   it('should be empty to begin with', function(){
-    assert.equal(0, basket.subtotal);
+    basket.items = [];
+    assert.equal(0, basket.subtotal());
   })
-  it('should contain multuple items', function(){
-    assert.equal(2, basket.items.length)
+  it('should contain multiple items', function(){
+    basket.items = [item, bogofItem];
+    assert.equal(2, basket.items.length);
+  })
+  it('should have a correct subtotal', function(){
+    assert.equal(7, basket.subtotal());
   })
 });

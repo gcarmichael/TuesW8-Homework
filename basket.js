@@ -1,6 +1,12 @@
 var basket = {
-  subtotal: 0,
-  items: [item, bogofItem]
+  items: [],
+  subtotal: function(){
+    var total = 0
+    for(item of this.items){
+      total += item.price;
+    }
+    return total;
+  }
 }
 
 var item = {
